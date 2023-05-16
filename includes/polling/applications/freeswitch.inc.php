@@ -28,7 +28,8 @@ $rrd_def = RrdDefinition::make()
     ->addDataset('in_failed', 'COUNTER', 0, 4294967295)
     ->addDataset('in_okay', 'COUNTER', 0, 4294967295)
     ->addDataset('out_failed', 'COUNTER', 0, 4294967295)
-    ->addDataset('out_okay', 'COUNTER', 0, 4294967295);
+    ->addDataset('out_okay', 'COUNTER', 0, 4294967295)
+    ->addDataset('registrations', 'GAUGE', 0, 10000);
 $fields = [
     'calls' => $freeswitch['Calls'],
     'channels' => $freeswitch['Channels'],
@@ -37,6 +38,7 @@ $fields = [
     'in_okay' => $freeswitch['InTotal'] - $freeswitch['InFailed'],
     'out_failed' => $freeswitch['OutFailed'],
     'out_okay' => $freeswitch['OutTotal'] - $freeswitch['OutFailed'],
+    'registrations' => $freeswitch['Registrations'],
 ];
 $tags = compact('name', 'app_id', 'rrd_name', 'rrd_def');
 data_update($device, 'app', $tags, $fields);

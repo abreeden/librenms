@@ -6,6 +6,7 @@ $graphs = [
     'freeswitch_channels' => 'Freeswitch - Channels',
     'freeswitch_callsIn' => 'Freeswitch - Inbound Calls',
     'freeswitch_callsOut' => 'Freeswitch - Outbound Calls',
+    'freeswitch_registrations' => 'Freeswitch - Registrations',
 ];
 foreach ($graphs as $key => $text) {
     $graph_type = $key;
